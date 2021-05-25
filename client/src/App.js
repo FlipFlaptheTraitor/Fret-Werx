@@ -5,7 +5,7 @@ import ApolloClient from 'apollo-boost';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
-
+import Chat from './components/Chat';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import NoMatch from './pages/NoMatch';
@@ -34,6 +34,7 @@ function App() {
               <Route component={NoMatch} />
             </Switch>
           </div>
+          <Chat></Chat>
           <Footer />
         </div>
       </Router>
