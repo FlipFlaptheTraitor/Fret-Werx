@@ -5,14 +5,12 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
-    friendCount: Int
-    thoughts: [Thought]
-    friends: [User]
+    frets: [Fret]
   }
 
-  type Thought {
+  type Fret {
     _id: ID
-    thoughtText: String
+    webformatURL: String
     createdAt: String
     username: String
     reactionCount: Int
@@ -35,16 +33,15 @@ const typeDefs = gql`
     me: User
     users: [User]
     user(username: String!): User
-    thoughts(username: String): [Thought]
-    thought(_id: ID!): Thought
+    frets(username: String): Fret]
+    fret(_id: ID!): Fret
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addThought(thoughtText: String!): Thought
-    addReaction(thoughtId: ID!, reactionBody: String!): Thought
-    addFriend(friendId: ID!): User
+    addFret(webformatURL: String!): Fret
+    addReaction(fretId: ID!, reactionBody: String!): Fret
   }
 `;
 
