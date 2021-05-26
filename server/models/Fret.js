@@ -9,6 +9,15 @@ const fretSchema = new Schema(
       type: String,
       required: 'Please select a image!'
     },
+    title:{
+      type: String,
+      required: 'Please add a title!'
+    },
+    fretText: {
+      type: String,
+      required: 'Please add a description!',
+      maxlength: 280
+    },
     createdAt: {
       type: Date,
       default: Date.now,
@@ -18,6 +27,7 @@ const fretSchema = new Schema(
       type: String,
       required: true
     },
+ 
     
     reactions: [reactionSchema]
   },
