@@ -10,7 +10,7 @@ const FretList = ({ frets, title }) => {
     <div>
       <h3>{title}</h3>
       {frets &&
-        fretts.map(fret => (
+        frets.map(fret => (
           <div key={fret._id} className="card mb-3">
             <p className="card-header">
               <Link

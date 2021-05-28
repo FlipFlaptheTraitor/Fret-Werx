@@ -1,19 +1,19 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
-import ReactionList from '../components/ReactionList';
+import FeedbackList from '../components/FeedbackList';
 
 import { useQuery } from '@apollo/react-hooks';
-import { QUERY_THOUGHT } from '../utils/queries';
+import { QUERY_FRET } from '../utils/queries';
 
-const SingleThought = props => {
-  const { id: thoughtId } = useParams();
+const SingleFret = props => {
+  const { id: fretId } = useParams();
 
-  const { loading, data } = useQuery(QUERY_THOUGHT, {
-    variables: { id: thoughtId }
+  const { loading, data } = useQuery(QUERY_FRET, {
+    variables: { id: fretId }
   });
 
-  const thought = data?.thought || {};
+  const fret = data?.fret || {};
 
   if (loading) {
     return <div>Loading...</div>;
@@ -24,18 +24,18 @@ const SingleThought = props => {
       <div className="card mb-3">
         <p className="card-header">
           <span style={{ fontWeight: 700 }} className="text-light">
-            {thought.username}
+            {fret.username}
           </span>{' '}
-          thought on {thought.createdAt}
+          fret creation on {fret.createdAt}
         </p>
         <div className="card-body">
-          <p>{thought.thoughtText}</p>
+          <p>{fret.fretText}</p>
         </div>
       </div>
 
-      {thought.reactionCount > 0 && <ReactionList reactions={thought.reactions} />}
+      {fret.feedbackCount > 0 && <FeedbackList feedbacks={fret.feedbacks} />}
     </div>
   );
 };
 
-export default SingleThought;
+export default SingleFret;

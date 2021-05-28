@@ -1,5 +1,5 @@
 import React from 'react';
-import FretList from '../components/ThoughtList';
+import FretList from '../components/FretList';
 
 import { useQuery } from '@apollo/react-hooks';
 import { QUERY_FRETS } from '../utils/queries';
