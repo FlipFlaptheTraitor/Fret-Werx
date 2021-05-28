@@ -1,33 +1,33 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ThoughtList = ({ thoughts, title }) => {
-  if (!thoughts.length) {
-    return <h3>No Thoughts Yet</h3>;
+const FretList = ({ frets, title }) => {
+  if (!frets.length) {
+    return <h3>No Fret Creations Yet</h3>;
   }
 
   return (
     <div>
       <h3>{title}</h3>
-      {thoughts &&
-        thoughts.map(thought => (
-          <div key={thought._id} className="card mb-3">
+      {frets &&
+        fretts.map(fret => (
+          <div key={fret._id} className="card mb-3">
             <p className="card-header">
               <Link
-                to={`/profile/${thought.username}`}
+                to={`/my-frets/${fret.username}`}
                 style={{ fontWeight: 700 }}
                 className="text-light"
               >
-                {thought.username}
+                {fret.username}
               </Link>{' '}
-              thought on {thought.createdAt}
+              fret creation on {fret.createdAt}
             </p>
             <div className="card-body">
-              <Link to={`/thought/${thought._id}`}>
-                <p>{thought.thoughtText}</p>
+              <Link to={`/fret/${fret._id}`}>
+                <p>{fret.fretText}</p>
                 <p className="mb-0">
-                  Reactions: {thought.reactionCount} || Click to{' '}
-                  {thought.reactionCount ? 'see' : 'start'} the discussion!
+                  Reactions: {fret.feedbackCount} || Click to{' '}
+                  {fret.feedbackCount ? 'see' : 'start'} the discussion!
                 </p>
               </Link>
             </div>
@@ -37,4 +37,4 @@ const ThoughtList = ({ thoughts, title }) => {
   );
 };
 
-export default ThoughtList;
+export default FretList;

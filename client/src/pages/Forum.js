@@ -15,7 +15,7 @@ const Home = () => {
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <FretList frets={frets} title="Some Feed for Thought(s)..." />
+            <FretList frets={frets} title="Zee Creaschuns..." />
           )}
         </div>
       </div>
