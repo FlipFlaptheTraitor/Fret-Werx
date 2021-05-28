@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const reactionSchema = require('./Reaction');
+const feedbackSchema = require('./Feedback');
 const dateFormat = require('../utils/dateFormat');
 
 const fretSchema = new Schema(
@@ -29,7 +29,7 @@ const fretSchema = new Schema(
     },
  
     
-    reactions: [reactionSchema]
+    feedbacks: [feedbackSchema]
   },
   {
     toJSON: {
@@ -38,8 +38,8 @@ const fretSchema = new Schema(
   }
 );
 
-fretSchema.virtual('reactionCount').get(function() {
-  return this.reactions.length;
+fretSchema.virtual('feedbackCount').get(function() {
+  return this.feedbacks.length;
 });
 
 const Fret = model('Fret', fretSchema);

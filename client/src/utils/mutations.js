@@ -31,22 +31,22 @@ export const ADD_FRET = gql`
       webformatURL
       createdAt
       username
-      reactionCount
-      reactions {
+      feedbackCount
+      feedbacks {
         _id
       }
     }
   }
 `;
 
-export const ADD_REACTION = gql`
-  mutation addReaction($thoughtId: ID!, $reactionBody: String!) {
-    addReaction(thoughtId: $thoughtId, reactionBody: $reactionBody) {
+export const ADD_FEEDBACK = gql`
+  mutation addFeedback($thoughtId: ID!, $feedbackBody: String!) {
+    addFeedback(thoughtId: $thoughtId, feedbackBody: $feedbackBody) {
       _id
-      reactionCount
-      reactions {
+      feedbackCount
+      feedbacks {
         _id
-        reactionBody
+        feedbackBody
         createdAt
         username
       }

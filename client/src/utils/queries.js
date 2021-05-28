@@ -7,12 +7,12 @@ export const QUERY_FRETS = gql`
       webformatURL
       createdAt
       username
-      reactionCount
-      reactions {
+      feedbackCount
+      feedbacks {
         _id
         createdAt
         username
-        reactionBody
+        feedbackBody
       }
     }
   }
@@ -25,12 +25,12 @@ export const QUERY_FRET = gql`
       webformatURL
       createdAt
       username
-      reactionCount
-      reactions {
+      feedbackCount
+      feedbacks {
         _id
         createdAt
         username
-        reactionBody
+        feedbackBody
       }
     }
   }
@@ -47,7 +47,7 @@ export const QUERY_USER = gql`
         webformatURL
         title
         createdAt
-        reactionCount
+        feedbackCount
       }
     }
   }
@@ -62,11 +62,11 @@ export const QUERY_ME = gql`
         _id
         webformatURL
         createdAt
-        reactionCount
-        reactions {
+       feedbackCount
+        feedbacks {
           _id
           createdAt
-          reactionBody
+         feedbackBody
           username
         }
       }
