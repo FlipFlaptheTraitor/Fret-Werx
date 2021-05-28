@@ -72,11 +72,11 @@ const resolvers = {
 
       throw new AuthenticationError('You need to be logged in!');
     },
-    addReaction: async (parent, {fretId, reactionBody }, context) => {
+    addFeedback: async (parent, {fretId, feedbackBody }, context) => {
       if (context.user) {
         const updatedFret = await Fret.findOneAndUpdate(
           { _id: fretId },
-          { $push: { reactions: { reactionBody, username: context.user.username } } },
+          { $push: { feedbacks: { feedbackBody, username: context.user.username } } },
           { new: true, runValidators: true }
         );
 

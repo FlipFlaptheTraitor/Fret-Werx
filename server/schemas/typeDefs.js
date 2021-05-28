@@ -13,13 +13,13 @@ const typeDefs = gql`
     webformatURL: String
     createdAt: String
     username: String
-    reactionCount: Int
-    reactions: [Reaction]
+    feedbackCount: Int
+    feedbacks: [Feedback]
   }
 
-  type Reaction {
+  type Feedback {
     _id: ID
-    reactionBody: String
+    feedbackBody: String
     createdAt: String
     username: String
   }
@@ -41,7 +41,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     addFret(webformatURL: String!): Fret
-    addReaction(fretId: ID!, reactionBody: String!): Fret
+    addFeedback(fretId: ID!, feedbackBody: String!): Fret
   }
 `;
 

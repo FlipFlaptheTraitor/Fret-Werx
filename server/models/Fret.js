@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const reactionSchema = require('./Reaction');
+const feedbackSchema = require('./Feedback');
 const dateFormat = require('../utils/dateFormat');
 
 const fretSchema = new Schema(
@@ -8,6 +8,15 @@ const fretSchema = new Schema(
     webformatURL: {
       type: String,
       required: 'Please select a image!'
+    },
+    title:{
+      type: String,
+      required: 'Please add a title!'
+    },
+    fretText: {
+      type: String,
+      required: 'Please add a description!',
+      maxlength: 280
     },
     createdAt: {
       type: Date,
@@ -18,8 +27,9 @@ const fretSchema = new Schema(
       type: String,
       required: true
     },
+ 
     
-    reactions: [reactionSchema]
+    feedbacks: [feedbackSchema]
   },
   {
     toJSON: {
@@ -28,8 +38,8 @@ const fretSchema = new Schema(
   }
 );
 
-fretSchema.virtual('reactionCount').get(function() {
-  return this.reactions.length;
+fretSchema.virtual('feedbackCount').get(function() {
+  return this.feedbacks.length;
 });
 
 const Fret = model('Fret', fretSchema);
