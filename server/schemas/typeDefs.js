@@ -33,7 +33,7 @@ const typeDefs = gql`
     me: User
     users: [User]
     user(username: String!): User
-    frets(username: String): Fret]
+    frets(username: String): [Fret]
     fret(_id: ID!): Fret
   }
 
