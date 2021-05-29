@@ -11,6 +11,8 @@ const typeDefs = gql`
   type Fret {
     _id: ID
     webformatURL: String
+    title: String
+    fretText: String
     createdAt: String
     username: String
     feedbackCount: Int

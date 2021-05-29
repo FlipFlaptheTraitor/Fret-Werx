@@ -5,6 +5,8 @@ export const QUERY_FRETS = gql`
     frets(username: $username) {
       _id
       webformatURL
+      title
+      fretText
       createdAt
       username
       feedbackCount
@@ -23,6 +25,8 @@ export const QUERY_FRET = gql`
     fret(_id: $id) {
       _id
       webformatURL
+      title
+      fretText
       createdAt
       username
       feedbackCount
