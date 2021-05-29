@@ -4,7 +4,7 @@ import FretList from '../components/FretList';
 import { useQuery } from '@apollo/react-hooks';
 import { QUERY_FRETS } from '../utils/queries';
 
-const Home = () => {
+const Forum = () => {
   const { loading, data } = useQuery(QUERY_FRETS);
   const frets = data?.frets || [];
 
@@ -23,4 +23,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Forum;
