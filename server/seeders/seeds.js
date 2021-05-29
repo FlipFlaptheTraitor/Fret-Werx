@@ -1,10 +1,12 @@
 const faker = require('faker');
 
+const thumb = '../../client/src/assets/images/thumbnailSeeder.jpg';
+
 const db = require('../config/connection');
 const { Fret, User } = require('../models');
 
 db.once('open', async () => {
- // await Fret.deleteMany({});
+  await Fret.deleteMany({});
   await User.deleteMany({});
 
   // create user data
@@ -22,6 +24,24 @@ db.once('open', async () => {
 
 
   // create frets
+  let createdFrets = [];
+  for (let i = 0; i < 100; i += 1) {
+    const fretText = faker.lorem.words(Math.round(Math.random() * 20) + 1);
+    const webformatURL = thumb;
+    const title = faker.lorem.words(Math.round(Math.random() * 7) + 1);
+
+    const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
+    const { username, _id: userId } = createdUsers.ops[randomUserIndex];
+
+    const createdFret = await Fret.create({ webformatURL, title, fretText, username });
+
+    const updatedUser = await User.updateOne(
+      { _id: userId },
+      { $push: { frets: createdFret._id } }
+    );
+
+    createdFrets.push(createdFret);
+  }
 
   // create feedback
   for (let i = 0; i < 100; i += 1) {
@@ -30,11 +50,11 @@ db.once('open', async () => {
     const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
     const { username } = createdUsers.ops[randomUserIndex];
 
-    const randomThoughtIndex = Math.floor(Math.random() * createdThoughts.length);
-    const { _id: thoughtId } = createdThoughts[randomThoughtIndex];
+    const randomFretIndex = Math.floor(Math.random() * createdFrets.length);
+    const { _id: fretId } = createdFrets[randomFretIndex];
 
-    await Thought.updateOne(
-      { _id: thoughtId },
+    await Fret.updateOne(
+      { _id: fretId },
       { $push: {feedbacks: { feedbackBody, username } } },
       { runValidators: true }
     );
