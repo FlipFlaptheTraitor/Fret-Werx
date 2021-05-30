@@ -4,7 +4,7 @@ const dateFormat = require('../utils/dateFormat');
 
 const fretSchema = new Schema(
   {
-    // pixelbay api name
+    // pixabay api name
     webformatURL: {
       type: String,
       required: 'Please select a image!'

@@ -9,8 +9,8 @@ const FretList = ({ frets, title }) => {
   }
 
   return (
-    <div>
-      <h3>{title}</h3>
+    <div className="fretlist-container">
+      <h2>{title}</h2>
       {frets &&
         frets.map(fret => (
           <div key={fret._id} className="card mb-3">
