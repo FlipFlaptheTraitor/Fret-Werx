@@ -15,7 +15,7 @@ const Forum = () => {
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <FretList frets={frets} title="Zee Creaschuns..." />
+            <FretList frets={frets} title="Feedback Forum" />
           )}
         </div>
       </div>
