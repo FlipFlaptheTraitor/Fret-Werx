@@ -15,11 +15,11 @@ const Header = () => {
       </div>
       <div className="nav-container">
         <nav className="text-right">
-          <Link to="/">home</Link>
-          <Link to="/forum">forum</Link>
-          <Link to="/fret-builder">fret builder</Link>
-          <Link to="/login">login</Link>
-          <Link to="/signup">signup</Link>
+          <Link to="/">Home</Link>
+          <Link to="/forum">Forum</Link>
+          <Link to="/fret-builder">Fret Builder</Link>
+          <Link to="/login">Login</Link>
+          <Link to="/signup">Signup</Link>
         </nav>
       </div>
     </header>

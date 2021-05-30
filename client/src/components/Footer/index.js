@@ -1,22 +1,23 @@
 import React from 'react';
-
 import logo from '../../assets/images/fwLogo2.png';
+import "./style.css";
 
 const Footer = () => {
   return (
     <footer className="w-100 mt-auto">
       <div className="container d-flex footer-info">
-        <div className="col-lg footer-1">
+        <div className="col-lg footer-1" id="about-us">
           <h3>About Us</h3>
           <p>
           Here at Fret Werx, we are a dedicated team of creatives and coders with a passion for music and individuality.  Our goal is to provide an easy and intuitive experience so that anyone can release their inner creativity based on the world’s greatest instrument, the guitar :)
           </p>
         </div>
         <div className="col-lg footer-2">
-          <img src={logo} alt="Fret Werx logo on maroon background" />+
+          <img src={logo} alt="Fret Werx logo on maroon background" />
         </div>
         <div className="col-lg footer-3">
-          <form>
+          <form id="ask">
+            <h3>Questions? Ask us here!</h3>
             <input
               className="form-input"
               placeholder="Your name"
