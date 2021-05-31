@@ -1,16 +1,18 @@
 const faker = require('faker');
 
+const thumb = '../../client/src/assets/images/thumbnailSeeder.jpg';
+
 const db = require('../config/connection');
-const { Thought, User } = require('../models');
+const { Fret, User } = require('../models');
 
 db.once('open', async () => {
-  await Thought.deleteMany({});
+  await Fret.deleteMany({});
   await User.deleteMany({});
 
   // create user data
   const userData = [];
 
-  for (let i = 0; i < 50; i += 1) {
+  for (let i = 0; i < 5; i += 1) {
     const username = faker.internet.userName();
     const email = faker.internet.email(username);
     const password = faker.internet.password();
@@ -20,52 +22,40 @@ db.once('open', async () => {
 
   const createdUsers = await User.collection.insertMany(userData);
 
-  // create friends
-  for (let i = 0; i < 100; i += 1) {
-    const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-    const { _id: userId } = createdUsers.ops[randomUserIndex];
 
-    let friendId = userId;
-
-    while (friendId === userId) {
-      const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-      friendId = createdUsers.ops[randomUserIndex];
-    }
-
-    await User.updateOne({ _id: userId }, { $addToSet: { friends: friendId } });
-  }
-
-  // create thoughts
-  let createdThoughts = [];
-  for (let i = 0; i < 100; i += 1) {
-    const thoughtText = faker.lorem.words(Math.round(Math.random() * 20) + 1);
+  // create frets
+  let createdFrets = [];
+  for (let i = 0; i < 5; i += 1) {
+    const fretText = faker.lorem.words(Math.round(Math.random() * 20) + 1);
+    const webformatURL = thumb;
+    const title = faker.lorem.words(Math.round(Math.random() * 7) + 1);
 
     const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
     const { username, _id: userId } = createdUsers.ops[randomUserIndex];
 
-    const createdThought = await Thought.create({ thoughtText, username });
+    const createdFret = await Fret.create({ webformatURL, title, fretText, username });
 
     const updatedUser = await User.updateOne(
       { _id: userId },
-      { $push: { thoughts: createdThought._id } }
+      { $push: { frets: createdFret._id } }
     );
 
-    createdThoughts.push(createdThought);
+    createdFrets.push(createdFret);
   }
 
-  // create reactions
-  for (let i = 0; i < 100; i += 1) {
-    const reactionBody = faker.lorem.words(Math.round(Math.random() * 20) + 1);
+  // create feedback
+  for (let i = 0; i < 5; i += 1) {
+    const feedbackBody = faker.lorem.words(Math.round(Math.random() * 20) + 1);
 
     const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
     const { username } = createdUsers.ops[randomUserIndex];
 
-    const randomThoughtIndex = Math.floor(Math.random() * createdThoughts.length);
-    const { _id: thoughtId } = createdThoughts[randomThoughtIndex];
+    const randomFretIndex = Math.floor(Math.random() * createdFrets.length);
+    const { _id: fretId } = createdFrets[randomFretIndex];
 
-    await Thought.updateOne(
-      { _id: thoughtId },
-      { $push: { reactions: { reactionBody, username } } },
+    await Fret.updateOne(
+      { _id: fretId },
+      { $push: {feedbacks: { feedbackBody, username } } },
       { runValidators: true }
     );
   }

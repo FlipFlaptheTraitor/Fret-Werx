@@ -1,36 +1,40 @@
 import gql from 'graphql-tag';
 
-export const QUERY_THOUGHTS = gql`
-  query thoughts($username: String) {
-    thoughts(username: $username) {
+export const QUERY_FRETS = gql`
+  query frets($username: String) {
+    frets(username: $username) {
       _id
-      thoughtText
+      webformatURL
+      title
+      fretText
       createdAt
       username
-      reactionCount
-      reactions {
+      feedbackCount
+      feedbacks {
         _id
         createdAt
         username
-        reactionBody
+        feedbackBody
       }
     }
   }
 `;
 
-export const QUERY_THOUGHT = gql`
-  query thought($id: ID!) {
-    thought(_id: $id) {
+export const QUERY_FRET = gql`
+  query fret($id: ID!) {
+    fret(_id: $id) {
       _id
-      thoughtText
+      webformatURL
+      title
+      fretText
       createdAt
       username
-      reactionCount
-      reactions {
+      feedbackCount
+      feedbacks {
         _id
         createdAt
         username
-        reactionBody
+        feedbackBody
       }
     }
   }
@@ -42,17 +46,53 @@ export const QUERY_USER = gql`
       _id
       username
       email
-      friendCount
-      friends {
+      frets {
         _id
-        username
-      }
-      thoughts {
-        _id
-        thoughtText
+        webformatURL
+        title
+        fretText
         createdAt
-        reactionCount
+        feedbackCount
+        feedbacks {
+          _id
+          createdAt
+          username
+          feedbackBody
+        }
       }
+    }
+  }
+`;
+export const QUERY_ME = gql`
+  {
+    me {
+      _id
+      username
+      email
+      frets {
+        _id
+        webformatURL
+        title
+        fretText
+        createdAt
+       feedbackCount
+       feedbacks {
+        _id
+        createdAt
+        username
+        feedbackBody
+      }
+      }
+    }
+  }
+`;
+
+export const QUERY_ME_BASIC = gql`
+  {
+    me {
+      _id
+      username
+      email 
     }
   }
 `;
