@@ -28,8 +28,8 @@ const FretList = ({ frets, title }) => {
                 <img src={thumb} alt="test thumbnail" />
               </div>
               <div className="info-wrap">
+              <p>{fret.fretText}</p>
                 <Link to={`/fret/${fret._id}`}>
-                  <p>{fret.fretText}</p>
                   <p className="mb-0">
                     Reactions: {fret.feedbackCount} || Click to{' '}
                     {fret.feedbackCount ? 'see' : 'start'} the discussion!
