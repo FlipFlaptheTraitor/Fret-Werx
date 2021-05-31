@@ -50,8 +50,15 @@ export const QUERY_USER = gql`
         _id
         webformatURL
         title
+        fretText
         createdAt
         feedbackCount
+        feedbacks {
+          _id
+          createdAt
+          username
+          feedbackBody
+        }
       }
     }
   }
@@ -65,14 +72,16 @@ export const QUERY_ME = gql`
       frets {
         _id
         webformatURL
+        title
+        fretText
         createdAt
        feedbackCount
-        feedbacks {
-          _id
-          createdAt
-         feedbackBody
-          username
-        }
+       feedbacks {
+        _id
+        createdAt
+        username
+        feedbackBody
+      }
       }
     }
   }

@@ -40,8 +40,8 @@ export const ADD_FRET = gql`
 `;
 
 export const ADD_FEEDBACK = gql`
-  mutation addFeedback($thoughtId: ID!, $feedbackBody: String!) {
-    addFeedback(thoughtId: $thoughtId, feedbackBody: $feedbackBody) {
+  mutation addFeedback($fretId: ID!, $feedbackBody: String!) {
+    addFeedback(fretId: $fretId, feedbackBody: $feedbackBody) {
       _id
       feedbackCount
       feedbacks {
