@@ -1,24 +1,26 @@
 const express = require('express');
 const {ApolloServer} = require('apollo-server-express');
 const path = require('path');
-
 const {typeDefs, resolvers} = require('./schemas');
 const {authMiddleware} = require('./utils/auth');
 const db = require('./config/connection');
-
-const http = require('http')
-
-
-
-
+const cors = require('cors');
+const http = require('http');
+const socketIO = require('socket.io');
 const PORT = process.env.PORT || 3001;
 const app = express();
+let httpServer = http.Server()
+
+let io = socketIO(httpServer)
+
 const server = new ApolloServer({ 
   typeDefs, 
   resolvers, 
   context: authMiddleware 
 });
 
+
+app.use(cors())
 server.applyMiddleware({ app });
 
 app.use(express.urlencoded({ extended: false }));
@@ -33,16 +35,10 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
-
-const io = require('socket.io')(http);
-
-io.on('connection', socket => {
-  socket.on('message', ({ name, message }) => {
-    io.emit('message', { name, message })
-  })
-})
-
-
+//chat
+io.on('connection', (socket) => {
+  console.log('A client connected', socket.id)
+});
 
 db.once('open', () => {
   app.listen(PORT, () => {

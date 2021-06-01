@@ -14,8 +14,10 @@ import MyFrets from './pages/MyFrets';
 import FretBuilder from './pages/FretBuilder';
 import Forum from './pages/Forum';
 import Signup from './pages/Signup';
+import Auth from './utils/auth';
 
 const client = new ApolloClient({
+  
   request: (operation) => {
     const token = localStorage.getItem('id_token')
     operation.setContext({
@@ -28,6 +30,13 @@ const client = new ApolloClient({
 })
 
 function App() {
+  let curUser;
+
+  if (Auth.loggedIn()) {
+    curUser = Auth.getProfile().data.username;
+  }
+
+
   return (
     <ApolloProvider client={client}>
       <Router>
@@ -42,11 +51,19 @@ function App() {
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/my-frets/:username?" component={MyFrets} />
               <Route exact path="/fret/:id" component={SingleFret} />
-
               <Route component={NoMatch} />
             </Switch>
           </div>
-          <Chat></Chat>
+          {Auth.loggedIn() ? (
+            <>
+             <Chat></Chat>
+            </>
+          ):(
+            <>
+          </>
+          )
+        }
+          
           <Footer />
         </div>
       </Router>

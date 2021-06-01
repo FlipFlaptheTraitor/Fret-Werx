@@ -1,72 +1,49 @@
-import React, { useEffect, useRef, useState } from "react"
-import io from "socket.io-client";
-import "./style.css";
+import React, { useState, useEffect } from "react";
+import io from 'socket.io-client'
+
+const socket = io('http://localhost:3000/')
+const userName1 = 'User '+parseInt(Math.random()*10)
+
 
 
 
 function Chat() {
-	const [ state, setState ] = useState({ message: "", name: "" })
-	const [ chat, setChat ] = useState([])
+  const [message, setMessage] = useState('')
+  const [chat, setChat] = useState([])
 
-	const socketRef = useRef()
+  useEffect(() => {
+    socket.on('message', payload => {
+      setChat([...chat, payload])
+    })
+  })
 
-	useEffect(
-		() => {
-			socketRef.current = io.connect("http://localhost:3000")
-			socketRef.current.on("message", ({ name, message }) => {
-				setChat([ ...chat, { name, message } ])
-			})
-			return () => socketRef.current.disconnect()
-		},
-		[ chat ]
-	)
-
-	const onTextChange = (e) => {
-		setState({ ...state, [e.target.name]: e.target.value })
-	}
-
-	const onMessageSubmit = (e) => {
-		const { name, message } = state
-		socketRef.current.emit("message", { name, message })
-		e.preventDefault()
-		setState({ message: "", name })
-	}
-
-	const renderChat = () => {
-		return chat.map(({ name, message }, index) => (
-			<div key={index}>
-				<h3>
-					{name}: <span>{message}</span>
-				</h3>
-			</div>
-		))
-	}
-
-	return (
-		<div className="card">
-			<form onSubmit={onMessageSubmit}>
-				<h1>Messenger</h1>
-				<div className="name-field">
-					<input name="name" onChange={(e) => onTextChange(e)} value={state.name} label="Name" />
-				</div>
-				<div>
-					<input
-						name="message"
-						onChange={(e) => onTextChange(e)}
-						value={state.message}
-						id="outlined-multiline-static"
-						variant="outlined"
-						label="Message"
-					/>
-				</div>
-				<button>Send Message</button>
-			</form>
-			<div className="render-chat">
-				<h1>Chat Log</h1>
-				{renderChat()}
-			</div>
-		</div>
-	)
+  const sendMessage = (e) => {
+    e.preventDefault();
+    console.log(message)
+    socket.emit('message',{userName1,message})
+    setMessage('')
+  };
+  return (
+    <div className="App"id="App">
+      <h1>Welcome to chat app</h1>
+      <form onSubmit={sendMessage}>
+        <input type="text" name="message"
+        placeholder='Type message'
+        value={message}
+        onChange={(e)=>{setMessage(e.target.value)}}
+        required
+        ></input>
+        <button type='submit'>Send</button>
+        </form>
+        <div>
+      {chat.map((payload, index)=>{
+        return(
+          <h3 key={index}>{payload.userName1}: <span>{payload.message}</span></h3>
+        )
+        
+      })}
+      </div>
+    </div>
+  );
 }
-
 export default Chat
