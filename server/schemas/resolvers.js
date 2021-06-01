@@ -58,6 +58,8 @@ const resolvers = {
       return { token, user };
     },
     addFret: async (parent, args, context) => {
+      console.log("args");
+      console.log(args);
       if (context.user) {
         const fret = await Fret.create({ ...args, username: context.user.username });
 
