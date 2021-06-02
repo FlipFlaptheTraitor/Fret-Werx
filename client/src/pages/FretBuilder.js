@@ -1,5 +1,8 @@
+// import React from 'react';
 import React, { useState } from 'react';
-// import FretList from '../components/FretList';
+import { useParams } from 'react-router-dom';
+
+import FretForm from '../components/FretForm';
 
 import builder from '../assets/images/builderDisplay.png';
 import sample1 from '../assets/images/sampleBG-01.jpg';
@@ -13,16 +16,23 @@ import { useQuery } from '@apollo/react-hooks';
 import { QUERY_FRETS } from '../utils/queries';
 
 const Home = props => {
+
+  const [webformatURL, setWebformatURL] = useState('');
+
   const { loading, data } = useQuery(QUERY_FRETS);
   const frets = data?.frets || [];
   let userInput = '';
   let imgAry = [];
 
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   const handlePixabaySubmit = (event) => {
     event.preventDefault();
     userInput = document.getElementById("userInput").value;
     let inputReady= userInput.split(' ').join('+');
-    console.log(inputReady);
     fetch(
       'https://pixabay.com/api/' +
       '?key=1403504-14e482c582efc463713e4ec08' +
@@ -37,7 +47,6 @@ const Home = props => {
     .then(function (response)  {
       console.log("⬇⬇⬇   Pixabay Response   ⬇⬇⬇");
       console.log(response);
-      console.log(response.hits.length);
       userInput = '';
       imgAry = [];
       let pixabayAryLn = response.hits.length;
@@ -52,9 +61,7 @@ const Home = props => {
       for(let j=0;j<6;j++) {
         let pixImgEl = document.querySelector("[data-pixabay-img='" + j + "']");
         pixImgEl.setAttribute('src', imgAry[j]);
-        // pixImgEl.setAttribute('width', '300px');
       }
-
     })
     .catch(function (error) {
         console.log("⬇⬇⬇   error   ⬇⬇⬇");
@@ -70,16 +77,19 @@ const Home = props => {
       displayEl.style.backgroundImage = 'url('+disImg+')';
       console.log("⬇⬇⬇   disEl   ⬇⬇⬇");
       console.log(displayEl);
+
+      setWebformatURL(disImg);
       
     };
 
-    const handleFormClick = event => {
-      console.log("HANDLED NOTHING but check");
-    };
+    // const handleFormClick = event => {
+    //   console.log("HANDLED NOTHING but check");
+    // };
 
-    const handleSave = event => {
-      console.log("HANDLED NOTHING but check");
-    };
+    // const handleSave = event => {
+    //   console.log("HANDLED NOTHING but check");
+    //   // setWebformatURL('');
+    // };
 
   return (
     <main>
@@ -103,52 +113,34 @@ const Home = props => {
               </div>
             </div>
             <div className="display-mod">
-                <div className="image-choice-item">
-                  <img data-pixabay-img="0" src={sample1} alt="test" onClick={handleDisplay} />
-                </div>
-                <div className="image-choice-item">
-                  <img data-pixabay-img="1" src={sample2} alt="test" onClick={handleDisplay} />
-                </div>
-                <div className="image-choice-item">
-                  <img data-pixabay-img="2" src={sample3} alt="test" onClick={handleDisplay} />
-                </div>
 
-                <div className="image-choice-item">
-                  <img data-pixabay-img="3" src={sample4} alt="test" onClick={handleDisplay} />
-                </div>
-                <div className="image-choice-item">
-                  <img data-pixabay-img="4" src={sample5} alt="test" onClick={handleDisplay} />
-                </div>
-                <div className="image-choice-item">
-                  <img data-pixabay-img="5" src={sample6} alt="test" onClick={handleDisplay} />
-                </div>
+              <div className="image-choice-item">
+                <img data-pixabay-img="0" src={sample1} alt="a sample design for the fret werx application" onClick={handleDisplay} />
+              </div>
+              <div className="image-choice-item">
+                <img data-pixabay-img="1" src={sample2} alt="a sample design for the fret werx application" onClick={handleDisplay} />
+              </div>
+              <div className="image-choice-item">
+                <img data-pixabay-img="2" src={sample3} alt="a sample design for the fret werx application" onClick={handleDisplay} />
+              </div>
+
+              <div className="image-choice-item">
+                <img data-pixabay-img="3" src={sample4} alt="a sample design for the fret werx application" onClick={handleDisplay} />
+              </div>
+              <div className="image-choice-item">
+                <img data-pixabay-img="4" src={sample5} alt="a sample design for the fret werx application" onClick={handleDisplay} />
+              </div>
+              <div className="image-choice-item">
+                <img data-pixabay-img="5" src={sample6} alt="a sample design for the fret werx application" onClick={handleDisplay} />
+              </div>
+
             </div>
             <div className="form-mod">
-              <form onSubmit={handleSave} className="d-flex flex-column">
-                <input
-                  className="form-input"
-                  placeholder="Title"
-                  name="title"
-                />
-                <textarea
-                  className="form-input"
-                  placeholder="Description"
-                  name="description"
-                />
-                <button onClick={handleFormClick} className="btn d-block w-100" type="submit">
-                  Submit
-                </button>
-              </form>
+              <FretForm webformatURL={webformatURL} />
             </div>
           </div>
         </div>
       </div>
-
-
-{/* <div>
-  <img src={testy} alt="yo" />
-</div> */}
-
     </main>
   );
 };

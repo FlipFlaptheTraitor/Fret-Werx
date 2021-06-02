@@ -1,11 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Redirect, useParams, Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
 import logo from '../../assets/images/fwLogo.png';
 
+import { useQuery } from '@apollo/react-hooks';
+import { QUERY_USER, QUERY_ME } from '../../utils/queries';
 
 
 const Header = () => {
+
+  let curUser;
+
+  if (Auth.loggedIn()) {
+    curUser = Auth.getProfile().data.username;
+  }
 
   const logout = event => {
     event.preventDefault();
@@ -22,19 +30,20 @@ const Header = () => {
       </div>
       <div className="nav-container">
         <nav className="text-right">
-        <Link to="/">Home</Link>
+          <Link to="/">Home</Link>
           <Link to="/forum">Forum</Link>
-          <Link to="/fret-builder">Fret Builder</Link>
         {Auth.loggedIn() ? (
             <>
-             <a href="/" onClick={logout}>
+              <Link to="/fret-builder">Fret Builder</Link>
+              <Link to={`/my-frets/${curUser}`}>My Frets</Link>
+              <a href="/" onClick={logout}>
                 Logout
               </a>
             </>
           ) : (
             <>
               <Link to="/login">Login</Link>
-          <Link to="/signup">Signup</Link>
+              <Link to="/signup">Signup</Link>
             </>
           )}
         </nav>

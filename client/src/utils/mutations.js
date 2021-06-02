@@ -25,10 +25,12 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_FRET = gql`
-  mutation addFret($webformatURL: String!) {
-    addFret(webformatURL: $webformatURL) {
+  mutation addFret($webformatURL: String!, $title: String!, $fretText: String!) {
+    addFret(webformatURL: $webformatURL, title: $title, fretText: $fretText) {
       _id
       webformatURL
+      title
+      fretText
       createdAt
       username
       feedbackCount
@@ -40,8 +42,8 @@ export const ADD_FRET = gql`
 `;
 
 export const ADD_FEEDBACK = gql`
-  mutation addFeedback($thoughtId: ID!, $feedbackBody: String!) {
-    addFeedback(thoughtId: $thoughtId, feedbackBody: $feedbackBody) {
+  mutation addFeedback($fretId: ID!, $feedbackBody: String!) {
+    addFeedback(fretId: $fretId, feedbackBody: $feedbackBody) {
       _id
       feedbackCount
       feedbacks {
