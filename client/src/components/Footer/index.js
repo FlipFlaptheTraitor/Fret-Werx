@@ -40,12 +40,12 @@ const Footer = () => {
           </form>
         </div>
       </div>
-      <div className="container-fluid w-100 d-flex justify-content-between align-items-center bottom-footer">
+      <div className="container-fluid w-100 d-flex justify-content-around align-items-center bottom-footer">
         <div className="container w-50">&copy;2021 by WRP</div>
         <div className="container w-50 d-flex justify-content-between align-items-center">
-          <i className="fab fa-facebook-f"></i>
-          <i className="fab fa-instagram"></i>
-          <i className="fab fa-twitter"></i>
+          <a href="http://facebook.com"><i className="fab fa-facebook-f"></i></a>
+          <a href="http://instagram.com"><i className="fab fa-instagram"></i></a>
+          <a href="http://twitter.com"><i className="fab fa-twitter"></i></a>
         </div>
       </div>
     </footer>
