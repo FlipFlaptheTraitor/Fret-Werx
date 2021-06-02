@@ -1,16 +1,8 @@
 import React from 'react';
-import FretList from '../components/FretList';
-
 import display from '../assets/images/dualDisplayBoards.png';
-
-import { useQuery } from '@apollo/react-hooks';
-import { QUERY_FRETS } from '../utils/queries';
 import Auth from '../utils/auth';
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_FRETS);
-  const frets = data?.frets || [];
-  const loggedIn = Auth.loggedIn();
   return (
     <main>
       <div className="flex-row justify-space-between">
@@ -18,7 +10,15 @@ const Home = () => {
           <p>CREATE CUSTOM FRETBOARD DESIGNS</p>
           <h1>SIGN UP TO START BUILDING!</h1>
           <div className="hero-button">
-            <a href="/signup">Click 2 Create!</a>
+            {Auth.loggedIn() ? (
+              <>
+                <a href="/fret-builder">Click To Create!</a>
+              </>
+            ) : (
+              <>
+                <a href="/signup">Click To Create!</a>
+              </>
+            )}
           </div>
         </div>
         <div className="d-flex justify-content-between body-content">

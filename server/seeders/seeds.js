@@ -1,8 +1,5 @@
 const faker = require('faker');
 
-const thumb = '../../client/src/assets/images/thumbnailSeeder.jpg';
-const thumb2 = '{require(’../assets/images/sampleBG-05.jpg’)}';
-
 const db = require('../config/connection');
 const { Fret, User } = require('../models');
 

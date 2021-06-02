@@ -1,9 +1,6 @@
-// import React from 'react';
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
 
 import FretForm from '../components/FretForm';
-
 import builder from '../assets/images/builderDisplay.png';
 import sample1 from '../assets/images/sampleBG-01.jpg';
 import sample2 from '../assets/images/sampleBG-02.jpg';
@@ -12,22 +9,11 @@ import sample4 from '../assets/images/sampleBG-04.jpg';
 import sample5 from '../assets/images/sampleBG-05.jpg';
 import sample6 from '../assets/images/sampleBG-06.jpg';
 
-import { useQuery } from '@apollo/react-hooks';
-import { QUERY_FRETS } from '../utils/queries';
-
 const Home = props => {
-
   const [webformatURL, setWebformatURL] = useState('');
 
-  const { loading, data } = useQuery(QUERY_FRETS);
-  const frets = data?.frets || [];
   let userInput = '';
   let imgAry = [];
-
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
 
   const handlePixabaySubmit = (event) => {
     event.preventDefault();
@@ -77,19 +63,8 @@ const Home = props => {
       displayEl.style.backgroundImage = 'url('+disImg+')';
       console.log("⬇⬇⬇   disEl   ⬇⬇⬇");
       console.log(displayEl);
-
       setWebformatURL(disImg);
-      
     };
-
-    // const handleFormClick = event => {
-    //   console.log("HANDLED NOTHING but check");
-    // };
-
-    // const handleSave = event => {
-    //   console.log("HANDLED NOTHING but check");
-    //   // setWebformatURL('');
-    // };
 
   return (
     <main>

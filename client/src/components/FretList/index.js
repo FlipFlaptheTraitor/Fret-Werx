@@ -5,7 +5,7 @@ import builder from '../../assets/images/builderDisplay.png';
 
 const FretList = ({ frets, title }) => {
   if (!frets.length) {
-    return <h3>No Fret Creations Yet</h3>;
+    return <h3 className="no-creation">No Fret Creations Yet</h3>;
   }
 
   return (
@@ -24,8 +24,6 @@ const FretList = ({ frets, title }) => {
               fret creation on {fret.createdAt}
             </p>
             <div className="card-body fret-panel">
-
-
               <div className="thumb-display">
                 <div className="thumb-container">
                   <div className="thumb-background" style={{ backgroundImage: `url(${fret.webformatURL})` }}>
@@ -33,9 +31,6 @@ const FretList = ({ frets, title }) => {
                   </div>
                 </div>
               </div>
-
-
-
               <div className="info-wrap">
               <p>{fret.title}</p>
               <p>{fret.fretText}</p>
@@ -46,10 +41,6 @@ const FretList = ({ frets, title }) => {
                   </p>
                 </Link>
               </div>
-
-
-
-
             </div>
           </div>
         ))}
