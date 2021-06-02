@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Redirect } from 'react-router-dom';
 
 import { useMutation } from '@apollo/react-hooks';
 import { ADD_FRET } from '../../utils/mutations';
@@ -55,7 +56,7 @@ const FretForm = ({ webformatURL }) => {
   // submit form
   const handleFormSubmit = async event => {
     event.preventDefault();
-    console.log(webformatURL);
+    // console.log(webformatURL);
 
 
         
@@ -70,7 +71,6 @@ const FretForm = ({ webformatURL }) => {
       await addFret({
         variables: { webformatURL, title, fretText }
       });
-
       // clear form value
       setText('');
       setTitle('');
@@ -81,9 +81,7 @@ const FretForm = ({ webformatURL }) => {
       console.log("error down below");
       console.error(e);
     }
-
-
-
+    window.location = './forum';
   };
 
   return (

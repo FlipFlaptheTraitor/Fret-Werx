@@ -75,6 +75,7 @@ export const QUERY_ME = gql`
         title
         fretText
         createdAt
+        username
        feedbackCount
        feedbacks {
         _id
