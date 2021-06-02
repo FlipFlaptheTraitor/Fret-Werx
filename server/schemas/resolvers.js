@@ -60,12 +60,15 @@ const resolvers = {
     addFret: async (parent, args, context) => {
       console.log("args");
       console.log(args);
+      console.log("context user id");
+      console.log(context.user._id);
       if (context.user) {
         const fret = await Fret.create({ ...args, username: context.user.username });
-
+        console.log("so this ran...");
+        console.log(fret);
         await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $push: { frets: Fret._id } },
+          { $push: { frets: fret._id } },
           { new: true }
         );
 
