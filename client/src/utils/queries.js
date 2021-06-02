@@ -75,6 +75,7 @@ export const QUERY_ME = gql`
         title
         fretText
         createdAt
+        username
        feedbackCount
        feedbacks {
         _id
@@ -92,7 +93,7 @@ export const QUERY_ME_BASIC = gql`
     me {
       _id
       username
-      email 
+      email
     }
   }
 `;

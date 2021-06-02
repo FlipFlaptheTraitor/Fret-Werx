@@ -1,6 +1,7 @@
 const faker = require('faker');
 
 const thumb = '../../client/src/assets/images/thumbnailSeeder.jpg';
+const thumb2 = '{require(’../assets/images/sampleBG-05.jpg’)}';
 
 const db = require('../config/connection');
 const { Fret, User } = require('../models');
@@ -12,7 +13,7 @@ db.once('open', async () => {
   // create user data
   const userData = [];
 
-  for (let i = 0; i < 5; i += 1) {
+  for (let i = 0; i < 15; i += 1) {
     const username = faker.internet.userName();
     const email = faker.internet.email(username);
     const password = faker.internet.password();
@@ -27,8 +28,9 @@ db.once('open', async () => {
   let createdFrets = [];
   for (let i = 0; i < 5; i += 1) {
     const fretText = faker.lorem.words(Math.round(Math.random() * 20) + 1);
-    const webformatURL = thumb;
     const title = faker.lorem.words(Math.round(Math.random() * 7) + 1);
+    const webformatURL = `../assets/images/sampleBG-0${i+1}.jpg`
+    // const webformatURL = thumb2;
 
     const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
     const { username, _id: userId } = createdUsers.ops[randomUserIndex];

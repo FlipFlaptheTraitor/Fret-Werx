@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import thumb from '../../assets/images/thumbnailSeeder.jpg';
+import builder from '../../assets/images/builderDisplay.png';
 
 const FretList = ({ frets, title }) => {
   if (!frets.length) {
@@ -23,11 +23,21 @@ const FretList = ({ frets, title }) => {
               </Link>{' '}
               fret creation on {fret.createdAt}
             </p>
-            <div className="card-body">
-              <div className="thumb-wrap">
-                <img src={thumb} alt="test thumbnail" />
+            <div className="card-body fret-panel">
+
+
+              <div className="thumb-display">
+                <div className="thumb-container">
+                  <div className="thumb-background" style={{ backgroundImage: `url(${fret.webformatURL})` }}>
+                    <img src={builder} alt="A guitar fretboard template builder that displays dynamic designs to the user" />
+                  </div>
+                </div>
               </div>
+
+
+
               <div className="info-wrap">
+              <p>{fret.title}</p>
               <p>{fret.fretText}</p>
                 <Link to={`/fret/${fret._id}`}>
                   <p className="mb-0">
@@ -36,6 +46,10 @@ const FretList = ({ frets, title }) => {
                   </p>
                 </Link>
               </div>
+
+
+
+
             </div>
           </div>
         ))}

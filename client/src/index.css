@@ -236,6 +236,7 @@ footer img {
 }
 .card-body {
   display: flex;
+  height: 300px;
 }
 .info-wrap {
   padding: 1.25rem;
@@ -363,4 +364,21 @@ border-radius: 5px;
 }
 .no-user {
   color: var(--primary);
+}
+
+.thumb-display {
+  width: 75px;
+}
+.thumb-container {
+  position: relative;
+  height: 100%;
+}
+.thumb-container img {
+  height: 100%;
+}
+.thumb-background {
+  background-repeat: repeat;
+  background-size: cover;
+  position: absolute;
+  height: 100%;
 }

@@ -42,7 +42,7 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addFret(webformatURL: String!): Fret
+    addFret(webformatURL: String!, title: String!, fretText: String!): Fret
     addFeedback(fretId: ID!, feedbackBody: String!): Fret
   }
 `;
