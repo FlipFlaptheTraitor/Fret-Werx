@@ -18,7 +18,16 @@ const Home = () => {
           <p>CREATE CUSTOM FRETBOARD DESIGNS</p>
           <h1>SIGN UP TO START BUILDING!</h1>
           <div className="hero-button">
-            <a href="/signup">Click 2 Create!</a>
+          {Auth.loggedIn() ? (
+            <>
+             <a href="/fret-builder">Click 2 Create!</a>
+                </>
+          ) : (
+            <>
+             <a href="/signup">Click 2 Create!</a>
+                </>
+          )}
+           
           </div>
         </div>
         <div className="d-flex justify-content-between body-content">

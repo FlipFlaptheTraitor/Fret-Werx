@@ -29,8 +29,10 @@ const FretForm = ({ webformatURL }) => {
         console.error(e);
       }
       console.log("4");
+     
       // update me object's cache
       const { me } = cache.readQuery({ query: QUERY_ME });
+      debugger;
       console.log("5");
       cache.writeQuery({
         query: QUERY_ME,
