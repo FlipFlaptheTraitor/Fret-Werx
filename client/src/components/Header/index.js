@@ -1,14 +1,9 @@
 import React from 'react';
-import { Redirect, useParams, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
 import logo from '../../assets/images/fwLogo.png';
 
-import { useQuery } from '@apollo/react-hooks';
-import { QUERY_USER, QUERY_ME } from '../../utils/queries';
-
-
 const Header = () => {
-
   let curUser;
 
   if (Auth.loggedIn()) {
