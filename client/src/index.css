@@ -226,6 +226,8 @@ footer img {
 .builder-container {
   margin: 80px 0;
 }
+
+
 .fretlist-container h2,
 .builder-container h2 {
   font-size: 6rem;
@@ -363,6 +365,7 @@ border-radius: 5px;
 .builder-form {
   display: flex;
   flex-direction: column;
+
 }
 
 
@@ -452,6 +455,3 @@ border-radius: 5px;
   margin-bottom: 20px;
 }
 
-@media screen and (max-width: 990px) {
-  
-}
