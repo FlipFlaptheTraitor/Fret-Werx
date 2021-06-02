@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import React, { useState } from 'react';
 
 import { useMutation } from '@apollo/react-hooks';
 import { ADD_FRET } from '../../utils/mutations';
@@ -14,32 +13,23 @@ const FretForm = ({ webformatURL }) => {
 
   const [addFret, { error }] = useMutation(ADD_FRET, {
     update(cache, { data: { addFret } }) {
-      console.log("1");
       try {
         // update fret array's cache
         // could potentially not exist yet, so wrap in a try/catch
         const { frets } = cache.readQuery({ query: QUERY_FRETS });
-        console.log("2");
         cache.writeQuery({
           query: QUERY_FRETS,
           data: { frets: [addFret, ...frets] }
         });
-        console.log("3");
       } catch (e) {
-        console.log("error top of file");
         console.error(e);
       }
-      console.log("4");
-     
       // update me object's cache
       const { me } = cache.readQuery({ query: QUERY_ME });
-      debugger;
-      console.log("5");
       cache.writeQuery({
         query: QUERY_ME,
         data: { me: { ...me, frets: [...me.frets, addFret] } }
       });
-      console.log("6");
     }
   });
 
@@ -58,17 +48,6 @@ const FretForm = ({ webformatURL }) => {
   // submit form
   const handleFormSubmit = async event => {
     event.preventDefault();
-    // console.log(webformatURL);
-
-
-        
-   
-    // useEffect(async () => {
-    //   const usersObject = await axios.get('/api/users')
-    //   setUsers(usersObject)
-    // }, [])
-
-
     try {
       await addFret({
         variables: { webformatURL, title, fretText }
@@ -76,9 +55,7 @@ const FretForm = ({ webformatURL }) => {
       // clear form value
       setText('');
       setTitle('');
-      setCharacterCount(0);
-      // setWebformatURL('');
-      
+      setCharacterCount(0)
     } catch (e) {
       console.log("error down below");
       console.error(e);
@@ -93,22 +70,22 @@ const FretForm = ({ webformatURL }) => {
         {error && <span className="ml-2">Something went wrong...</span>}
       </p>
       <form
-        className="flex-row justify-center justify-space-between-md align-stretch"
+        className="builder-form"
         onSubmit={handleFormSubmit}
       >
         <input
           placeholder="Here's a new title..."
           value={title}
-          className="form-input col-12 col-md-9"
+          className="form-input"
           onChange={handleChangeTitle}
         ></input>
         <textarea
           placeholder="Here's a new description..."
           value={fretText}
-          className="form-input col-12 col-md-9"
+          className="form-input"
           onChange={handleChangeText}
         ></textarea>
-        <button className="btn col-12 col-md-3" type="submit">
+        <button className="btn" type="submit">
           Submit
         </button>
       </form>

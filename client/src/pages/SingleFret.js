@@ -24,9 +24,8 @@ const SingleFret = props => {
   }
 
   return (
-    <div>
+    <div className="single-fret-container">
           <div key={fret._id} className="card mb-3">
-
             <p className="card-header">
               <Link
                 to={`/my-frets/${fret.username}`}
@@ -36,10 +35,7 @@ const SingleFret = props => {
               </Link>{' '}
               fret creation on {fret.createdAt}
             </p>
-
             <div className="card-body">
-
-
             <div className="thumb-display">
                 <div className="thumb-container">
                   <div className="thumb-background" style={{ backgroundImage: `url(${fret.webformatURL})` }}>
@@ -47,15 +43,6 @@ const SingleFret = props => {
                   </div>
                 </div>
               </div>
-
-
-
-              {/* <div className="thumb-wrap">
-                <img src={thumb} alt="test thumbnail" />
-              </div> */}
-
-
-
               <div className="info-wrap">
                 <p>{fret.fretText}</p>
                 <Link to={`/fret/${fret._id}`}>
@@ -66,7 +53,6 @@ const SingleFret = props => {
                 </Link>
               </div>
             </div>
-
           </div>
         {fret.feedbackCount > 0 && <FeedbackList feedbacks={fret.feedbacks} />}
         {Auth.loggedIn() && <FeedbackForm fretId={fret._id} />}

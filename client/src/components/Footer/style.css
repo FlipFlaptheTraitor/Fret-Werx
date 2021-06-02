@@ -9,7 +9,8 @@
 }
 
 #ask{
-
+    display: flex;
+    flex-direction: column;
     border: 3px solid ;
     background-color:#8E7064 ;
     padding: 20px;
@@ -19,8 +20,14 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
+#ask input,
+#ask textarea {
+    font-size: 14px;
+}
+
 
 textarea {
     overflow-y: scroll;
     resize:none;
+    height: 80px;
 }
