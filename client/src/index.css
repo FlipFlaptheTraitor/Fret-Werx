@@ -92,8 +92,8 @@ nav a {
 }
 
 nav a:hover {
-  color: var(--secondary);
-  background-color: var(--dark);
+  color: var(--dark);
+  background-color: var(--tertiary);
 }
 
 footer {
@@ -146,6 +146,7 @@ footer img {
 .btn:hover,
 .pill:hover {
   /* color: var(--secondary); */
+  color: var(--quatrinary);
   background-color: var(--dark);
 }
 
@@ -449,4 +450,8 @@ border-radius: 5px;
 .feedback-button {
   width: 75%;
   margin-bottom: 20px;
+}
+
+@media screen and (max-width: 990px) {
+  
 }
