@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import thumb from '../../assets/images/thumbnailSeeder.jpg';
+import builder from '../../assets/images/builderDisplay.png';
 
 const FretList = ({ frets, title }) => {
   if (!frets.length) {
-    return <h3>No Fret Creations Yet</h3>;
+    return <h3 className="no-creation">No Fret Creations Yet</h3>;
   }
 
   return (
@@ -23,13 +23,18 @@ const FretList = ({ frets, title }) => {
               </Link>{' '}
               fret creation on {fret.createdAt}
             </p>
-            <div className="card-body">
-              <div className="thumb-wrap">
-                <img src={thumb} alt="test thumbnail" />
+            <div className="card-body fret-panel">
+              <div className="thumb-display">
+                <div className="thumb-container">
+                  <div className="thumb-background" style={{ backgroundImage: `url(${fret.webformatURL})` }}>
+                    <img src={builder} alt="A guitar fretboard template builder that displays dynamic designs to the user" />
+                  </div>
+                </div>
               </div>
               <div className="info-wrap">
+              <p>{fret.title}</p>
+              <p>{fret.fretText}</p>
                 <Link to={`/fret/${fret._id}`}>
-                  <p>{fret.fretText}</p>
                   <p className="mb-0">
                     Reactions: {fret.feedbackCount} || Click to{' '}
                     {fret.feedbackCount ? 'see' : 'start'} the discussion!

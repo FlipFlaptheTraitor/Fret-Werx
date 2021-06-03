@@ -19,17 +19,19 @@ const MyFrets = props => {
     return <div>Loading...</div>;
   }
 
+  if (!user?.username) {
+    return (
+      <h4 className="no-user">
+        No user found with this name!
+      </h4>
+    );
+  }
+
   return (
     <div>
-      <div className="flex-row mb-3">
-        <h2 className="bg-dark text-secondary p-3 display-inline-block">
-          Viewing {user.username}'s fret creations.
-        </h2>
-      </div>
-
-      <div className="flex-row justify-space-between mb-3">
-        <div className="col-12 mb-3 col-lg-8">
-          <FretList frets={user.frets} title={`${user.username}'s fret creations...`} />
+      <div className="my-frets-container">
+        <div className="">
+          <FretList frets={user.frets} title={`Peepin' ${user.username}'s fret creations`} />
         </div>
       </div>
     </div>

@@ -5,13 +5,13 @@ const FeedbackList = ({ feedbacks }) => {
   return (
     <div className="card mb-3">
       <div className="card-header">
-        <span className="text-light">Reactions</span>
+        <span className="feedback-title">Intended Feedback</span>
       </div>
-      <div className="card-body">
+      <div className="card-body feedback-container">
         {feedbacks &&
           feedbacks.map(feedback => (
-            <p className="pill mb-3" key={feedback._id}>
-              {feedback.feedbackBody} //{' '}
+            <p className="pill mb-3 feedback" key={feedback._id}>
+              {feedback.feedbackBody}{' '}
               <Link to={`/my-frets/${feedback.username}`} style={{ fontWeight: 700 }}>
                 {feedback.username} on {feedback.createdAt}
               </Link>
