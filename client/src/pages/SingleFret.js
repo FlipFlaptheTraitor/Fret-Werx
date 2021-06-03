@@ -24,7 +24,7 @@ const SingleFret = props => {
   }
 
   return (
-    <div className="single-fret-container">
+    <div className="single-fret-container mt-5">
           <div key={fret._id} className="card mb-3">
             <p className="card-header">
               <Link
