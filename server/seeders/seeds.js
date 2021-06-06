@@ -10,7 +10,7 @@ db.once('open', async () => {
   // create user data
   const userData = [];
 
-  for (let i = 0; i < 15; i += 1) {
+  for (let i = 0; i < 20; i += 1) {
     const username = faker.internet.userName();
     const email = faker.internet.email(username);
     const password = faker.internet.password();
@@ -23,10 +23,11 @@ db.once('open', async () => {
 
   // create frets
   let createdFrets = [];
-  for (let i = 0; i < 5; i += 1) {
+  for (let i = 0; i < 15; i += 1) {
     const fretText = faker.lorem.words(Math.round(Math.random() * 20) + 1);
     const title = faker.lorem.words(Math.round(Math.random() * 7) + 1);
-    const webformatURL = `../assets/images/sampleBG-0${i+1}.jpg`
+    const rando = Math.floor(Math.random() * 6) + 1;
+    const webformatURL = `../assets/images/sampleBG-0${rando}.jpg`
     // const webformatURL = thumb2;
 
     const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
@@ -43,7 +44,7 @@ db.once('open', async () => {
   }
 
   // create feedback
-  for (let i = 0; i < 5; i += 1) {
+  for (let i = 0; i < 10; i += 1) {
     const feedbackBody = faker.lorem.words(Math.round(Math.random() * 20) + 1);
 
     const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
