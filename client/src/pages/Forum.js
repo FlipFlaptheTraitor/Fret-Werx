@@ -8,7 +8,6 @@ const Forum = () => {
   const { loading, data } = useQuery(QUERY_FRETS);
   const frets = data?.frets || [];
   const fretsForum  = frets.slice(0, 5);
-  
 
   return (
     <main>
