@@ -458,8 +458,60 @@ border-radius: 5px;
 }
 
 @media screen and (max-width: 992px) {
-  .nav-container {
-    top: 135px;
+  .nav-item {
+    padding: 6px 4px;
+    font-size: 14px;
   }
-
+  .fretlist-container h2, .builder-container h2, .hero-text h1 {
+    font-size: 4rem;
+    word-wrap:  break-word;
+  }
+  .body-display img {
+    height: 600px;
+  }
+  .descrip-item {
+    font-size: 32px;
+  }
+  .user-selection {
+    max-width: 200px;
+    min-width: 200px;
+}
+  .user-selected {
+    max-width: 200px;
+    min-width: 200px;
+  }
+  .user-selection img {
+    max-width: 200px;
+    min-width: 200px;
+  }
+  .builder-controls {
+    margin: 20px;
+  }
+  .search-mod {
+    margin-bottom: 30px;
+  }
+  .search-mod h3 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  .display-mod {
+    height: 300px;
+    margin-bottom: 15px;
+  }
+  .image-choice-item {
+    width: 100px;
+    height: 100px;
+  }
+  .form-mod {
+    font-size: 14px;
+  }
+  .form-mod textarea {
+    height: 150px;
+  }
+  .footer-info {
+    flex-direction: column;
+  }
+  .footer-2 img {
+    width: 50%;
+  }
 }
