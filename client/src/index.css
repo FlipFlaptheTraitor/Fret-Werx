@@ -618,3 +618,64 @@ border-radius: 5px;
     margin-top: -40px;
 }
 }
+
+@media screen and (max-width: 481px) {
+  .fw-navbar {
+    width: 100vw;
+  }
+  nav a {
+    font-size: 0.9rem;
+    margin: 0 5px;
+  }
+  .info-wrap p {
+    font-size: 0.9rem;
+  }
+  .body-display {
+    width: 30%;
+  }
+  .body-display img {
+    height: 220px;
+  }
+  .body-content {
+    margin-bottom: 50px;
+  }
+  .body-descrip {
+    padding: 10px;
+  }
+  .descrip-item {
+    font-size: 10px;
+  }
+  .fretlist-container h2, .builder-container h2, .hero-text h1 {
+    font-size: 3rem;
+  }
+  .builder-container {
+    margin-top: -60px;
+  }
+  .builder-box {
+    flex-direction: column-reverse;
+    margin-bottom: 10px;
+  }
+  .builder-display {
+    margin-bottom: 10px;
+  }
+  .user-selection {
+    margin: auto;
+    display: flex;
+  }
+  .user-selection img {
+    position: relative;
+    z-index: 0;
+  }
+  .builder-controls {
+    width: 90%;
+  }
+  .image-choice-item {
+    height: 75px;
+  }
+  .bottom-footer {
+    flex-direction: column;
+  }
+  .no-creation {
+    font-size: 3rem;
+  }
+}
