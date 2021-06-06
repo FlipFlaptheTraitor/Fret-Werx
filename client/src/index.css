@@ -9,16 +9,13 @@
   --translucent: rgba(255,255,255,0.95);
   --transducent: rgba(255,255,255,0.92);
 }
-
 * {
   box-sizing: border-box;
 }
-
 html,
 body {
   min-height: 100%;
 }
-
 body {
   margin: 0;
   padding: 0;
@@ -29,7 +26,6 @@ body {
   color: var(--dark);
   background-color: #f3fffee1;
 }
-
 h1,
 h2,
 h3,
@@ -41,94 +37,81 @@ h6 {
   margin: 5px 0;
   line-height: 1.25;
 }
-
 h1 {
   font-size: 2.25rem;
 }
-
 h2 {
   font-size: 2rem;
 }
-
 h3 {
   font-size: 1.75rem;
 }
-
 h4 {
   font-size: 1.5rem;
 }
-
 h5 {
   font-size: 1.25rem;
 }
-
 h6 {
   font-size: 1rem;
 }
-
 p {
   font-size: 1.1rem;
   margin-top: 0;
 }
-
 a {
   color: var(--dark);
   text-decoration: none;
 }
-
 a:visited {
   color: inherit;
 }
-
 nav {
   color: var(--primary);
 }
-
 nav a {
   padding: 6px 10px;
   margin: 0 15px;
   color: var(--primary);
   transition: all 0.2s;
 }
-
 nav a:hover {
   color: var(--dark);
   background-color: var(--tertiary);
 }
-
 footer {
   background-color: var(--secondary);
   padding-top: 20px;
 }
-
 footer img {
   width: 100%;
 }
-
 .footer-info {
   align-items: center;
   color: var(--primary);
   text-align: center;
 }
-
 .footer-1 p {
   font-size: 0.9rem;
 }
-
 .bottom-footer {
   font-size: 2rem;
   color: var(--light);
   background-color: var(--dark);
   padding: 0 5%;
 }
-
+.bottom-footer a {
+  color: var(--primary);
+}
+.bottom-footer a:hover {
+  color: lightblue;
+}
 .page-title {
   text-align: center;
   width: 100%;
   margin: 0;
   font-size: 2.5rem;
 }
-
 .btn,
 .pill {
   font-size: 1.3rem;
@@ -142,21 +125,15 @@ footer img {
   background-color: var(--secondary);
   transition: all 0.5s;
 }
-
 .btn:hover,
 .pill:hover {
   /* color: var(--secondary); */
   color: var(--quatrinary);
   background-color: var(--dark);
 }
-
 .btn-inline {
   display: inline;
 }
-
-
-
-
 
 
 
@@ -226,8 +203,6 @@ footer img {
 .builder-container {
   margin: 80px 0;
 }
-
-
 .fretlist-container h2,
 .builder-container h2 {
   font-size: 6rem;
@@ -244,16 +219,12 @@ footer img {
   height: 300px;
 }
 .info-wrap {
+  width: 90%;
   padding: 1.25rem;
 }
 .thumb-wrap img {
   width: 85px;
 }
-
-
-
-
-
 
 
 
@@ -283,7 +254,7 @@ footer img {
 }
 .builder-controls {
   width: 70%;
-  margin: 80px auto 0;
+  margin: 80px 20px;
   display: flex;
   flex-direction: column;
 }
@@ -371,12 +342,15 @@ border-radius: 5px;
 }
 
 
+
 .no-match {
   color: var(--primary);
 }
 .no-user {
   color: var(--primary);
 }
+
+
 
 .thumb-display {
   width: 75px;
@@ -394,10 +368,6 @@ border-radius: 5px;
   position: absolute;
   height: 100%;
 }
-
-
-
-
 .my-frets-container .fretlist-container {
   background-color:var(--light);
   border-top-right-radius: 5px;
@@ -457,9 +427,236 @@ border-radius: 5px;
   margin-bottom: 20px;
 }
 
+.navbar-toggler {
+  text-align: right;
+  width: 100%;
+  border: 0;
+}
+.navbar-collapse {
+  text-align: right;
+}
+
+
+
 @media screen and (max-width: 992px) {
-  .nav-container {
-    top: 135px;
+  .nav-item {
+    padding: 6px 4px;
+    font-size: 14px;
+  }
+  .fretlist-container h2, .builder-container h2, .hero-text h1 {
+    font-size: 4rem;
+    word-wrap:  break-word;
+  }
+  .body-display img {
+    height: 600px;
+  }
+  .descrip-item {
+    font-size: 32px;
+  }
+  .user-selection {
+    max-width: 200px;
+    min-width: 200px;
+}
+  .user-selected {
+    max-width: 200px;
+    min-width: 200px;
+  }
+  .user-selection img {
+    max-width: 200px;
+    min-width: 200px;
+  }
+  .builder-controls {
+    margin: 20px;
+  }
+  .search-mod {
+    margin-bottom: 30px;
+  }
+  .search-mod h3 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  .display-mod {
+    height: 300px;
+    margin-bottom: 15px;
+  }
+  .image-choice-item {
+    width: 100px;
+    height: 100px;
+  }
+  .form-mod {
+    font-size: 14px;
+  }
+  .form-mod textarea {
+    height: 150px;
+  }
+  .footer-info {
+    flex-direction: column;
+  }
+  .footer-2 img {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .logo-container img {
+    height: 50%;
+  }
+  .navbar-collapse.show {
+    margin-top: 35px;
+  }
+  .nav-item {
+    padding: 6px 2px;
+    font-size: 13px;
+  }
+  .fretlist-container h2, .builder-container h2, .hero-text h1 {
+    font-size: 3rem;
+    word-wrap:  break-word;
+  }
+  .hero-text {
+    margin-top: 0;
+  }
+  .hero-button {
+    display: flex;
+    justify-content: center;
+  }
+  .hero-button a {
+    padding: 0;
+    text-align: center;
+  }
+  .body-display img {
+    height: 380px;
+  }
+  .body-content {
+    margin-top: 0;
+  }
+  .body-descrip {
+    padding: 10px;
+  }
+  .descrip-item {
+    font-size: 18px;
+  }
+  .fretlist-container, .builder-container {
+    margin: -60px 0 20px 0;
+  }
+  .user-selection {
+    max-width: 100px;
+    min-width: 100px;
+}
+  .user-selected {
+    max-width: 100px;
+    min-width: 100px;
+  }
+  .user-selection img {
+    max-width: 100px;
+    min-width: 100px;
+  }
+  .builder-controls {
+    width: 75%;
+    margin: auto;
+  }
+  .search-mod {
+    margin-bottom: 10px;
+  }
+  .search-mod h3 {
+    font-size: 2rem;
+  }
+  .search-container {
+    height: 30px;
+    font-size: 14px;
+  }
+  .display-mod {
+    height: auto;
+    margin-bottom: 15px;
+    flex-wrap: nowrap;
+  }
+  .image-choice-item {
+    padding: 0;
+    margin: 0;
+    height: 100px;
+  }
+  .image-choice-item img {
+    max-width: unset;
+  }
+  .form-mod {
+    font-size: 14px;
+  }
+  .form-mod p {
+    font-size: 12px;
+  }
+  .form-mod input {
+    margin-bottom: 10px;
+  }
+  .form-mod textarea {
+    height: 100px;
+    margin-bottom: 10px;
+  }
+  .form-mod button {
+    font-size: 14px;
+    margin-bottom: 10px;
   }
 
+  .no-creation {
+    margin-top: -40px;
+}
+}
+
+@media screen and (max-width: 481px) {
+  .fw-navbar {
+    width: 100vw;
+  }
+  nav a {
+    font-size: 0.9rem;
+    margin: 0 5px;
+  }
+  .info-wrap p {
+    font-size: 0.9rem;
+  }
+  .body-display {
+    width: 30%;
+  }
+  .body-display img {
+    height: 220px;
+  }
+  .body-content {
+    margin-bottom: 50px;
+  }
+  .body-descrip {
+    padding: 10px;
+  }
+  .descrip-item {
+    font-size: 10px;
+  }
+  .fretlist-container h2, .builder-container h2, .hero-text h1 {
+    font-size: 3rem;
+  }
+  .builder-container {
+    margin-top: -60px;
+  }
+  .builder-box {
+    flex-direction: column-reverse;
+    margin-bottom: 10px;
+  }
+  .builder-display {
+    margin-bottom: 10px;
+  }
+  .user-selection {
+    margin: auto;
+    display: flex;
+  }
+  .user-selection img {
+    position: relative;
+    z-index: 0;
+  }
+  .builder-controls {
+    width: 90%;
+  }
+  .image-choice-item {
+    height: 75px;
+  }
+  .bottom-footer {
+    flex-direction: column;
+  }
+  .no-creation {
+    font-size: 3rem;
+  }
 }

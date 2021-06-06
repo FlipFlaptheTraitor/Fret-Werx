@@ -25,37 +25,37 @@ const SingleFret = props => {
 
   return (
     <div className="single-fret-container mt-5">
-          <div key={fret._id} className="card mb-3">
-            <p className="card-header">
-              <Link
-                to={`/my-frets/${fret.username}`}
-                style={{ fontWeight: 700 }}
-              >
-                {fret.username}
-              </Link>{' '}
-              fret creation on {fret.createdAt}
-            </p>
-            <div className="card-body">
-            <div className="thumb-display">
-                <div className="thumb-container">
-                  <div className="thumb-background" style={{ backgroundImage: `url(${fret.webformatURL})` }}>
-                    <img src={builder} alt="A guitar fretboard template builder that displays dynamic designs to the user" />
-                  </div>
+        <div key={fret._id} className="card mb-3">
+          <p className="card-header">
+            <Link
+              to={`/my-frets/${fret.username}`}
+              style={{ fontWeight: 700 }}
+            >
+              {fret.username}
+            </Link>{' '}
+            fret creation on {fret.createdAt}
+          </p>
+          <div className="card-body">
+          <div className="thumb-display">
+              <div className="thumb-container">
+                <div className="thumb-background" style={{ backgroundImage: `url(${fret.webformatURL})` }}>
+                  <img src={builder} alt="A guitar fretboard template builder that displays dynamic designs to the user" />
                 </div>
               </div>
-              <div className="info-wrap">
-                <p>{fret.fretText}</p>
-                <Link to={`/fret/${fret._id}`}>
-                  <p className="mb-0">
-                    Feedback: {fret.feedbackCount} || Click to{' '}
-                    {fret.feedbackCount ? 'see' : 'start'} the discussion!
-                  </p>
-                </Link>
-              </div>
+            </div>
+            <div className="info-wrap">
+              <p>{fret.fretText}</p>
+              <Link to={`/fret/${fret._id}`}>
+                <p className="mb-0">
+                  Feedback: {fret.feedbackCount} || Click to{' '}
+                  {fret.feedbackCount ? 'see' : 'start'} the discussion!
+                </p>
+              </Link>
             </div>
           </div>
-        {fret.feedbackCount > 0 && <FeedbackList feedbacks={fret.feedbacks} />}
-        {Auth.loggedIn() && <FeedbackForm fretId={fret._id} />}
+        </div>
+      {fret.feedbackCount > 0 && <FeedbackList feedbacks={fret.feedbacks} />}
+      {Auth.loggedIn() && <FeedbackForm fretId={fret._id} />}
     </div>
   );
 };

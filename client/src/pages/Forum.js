@@ -7,6 +7,8 @@ import { QUERY_FRETS } from '../utils/queries';
 const Forum = () => {
   const { loading, data } = useQuery(QUERY_FRETS);
   const frets = data?.frets || [];
+  const fretsForum  = frets.slice(0, 5);
+  
 
   return (
     <main>
@@ -15,7 +17,7 @@ const Forum = () => {
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <FretList frets={frets} title="Feedback Forum" />
+            <FretList frets={fretsForum} title="Feedback Forum" />
           )}
         </div>
       </div>
