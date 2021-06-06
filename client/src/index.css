@@ -9,16 +9,13 @@
   --translucent: rgba(255,255,255,0.95);
   --transducent: rgba(255,255,255,0.92);
 }
-
 * {
   box-sizing: border-box;
 }
-
 html,
 body {
   min-height: 100%;
 }
-
 body {
   margin: 0;
   padding: 0;
@@ -29,7 +26,6 @@ body {
   color: var(--dark);
   background-color: #f3fffee1;
 }
-
 h1,
 h2,
 h3,
@@ -41,94 +37,81 @@ h6 {
   margin: 5px 0;
   line-height: 1.25;
 }
-
 h1 {
   font-size: 2.25rem;
 }
-
 h2 {
   font-size: 2rem;
 }
-
 h3 {
   font-size: 1.75rem;
 }
-
 h4 {
   font-size: 1.5rem;
 }
-
 h5 {
   font-size: 1.25rem;
 }
-
 h6 {
   font-size: 1rem;
 }
-
 p {
   font-size: 1.1rem;
   margin-top: 0;
 }
-
 a {
   color: var(--dark);
   text-decoration: none;
 }
-
 a:visited {
   color: inherit;
 }
-
 nav {
   color: var(--primary);
 }
-
 nav a {
   padding: 6px 10px;
   margin: 0 15px;
   color: var(--primary);
   transition: all 0.2s;
 }
-
 nav a:hover {
   color: var(--dark);
   background-color: var(--tertiary);
 }
-
 footer {
   background-color: var(--secondary);
   padding-top: 20px;
 }
-
 footer img {
   width: 100%;
 }
-
 .footer-info {
   align-items: center;
   color: var(--primary);
   text-align: center;
 }
-
 .footer-1 p {
   font-size: 0.9rem;
 }
-
 .bottom-footer {
   font-size: 2rem;
   color: var(--light);
   background-color: var(--dark);
   padding: 0 5%;
 }
-
+.bottom-footer a {
+  color: var(--primary);
+}
+.bottom-footer a:hover {
+  color: lightblue;
+}
 .page-title {
   text-align: center;
   width: 100%;
   margin: 0;
   font-size: 2.5rem;
 }
-
 .btn,
 .pill {
   font-size: 1.3rem;
@@ -142,21 +125,15 @@ footer img {
   background-color: var(--secondary);
   transition: all 0.5s;
 }
-
 .btn:hover,
 .pill:hover {
   /* color: var(--secondary); */
   color: var(--quatrinary);
   background-color: var(--dark);
 }
-
 .btn-inline {
   display: inline;
 }
-
-
-
-
 
 
 
@@ -226,8 +203,6 @@ footer img {
 .builder-container {
   margin: 80px 0;
 }
-
-
 .fretlist-container h2,
 .builder-container h2 {
   font-size: 6rem;
@@ -244,16 +219,12 @@ footer img {
   height: 300px;
 }
 .info-wrap {
+  width: 90%;
   padding: 1.25rem;
 }
 .thumb-wrap img {
   width: 85px;
 }
-
-
-
-
-
 
 
 
@@ -283,7 +254,7 @@ footer img {
 }
 .builder-controls {
   width: 70%;
-  margin: 80px auto 0;
+  margin: 80px 20px;
   display: flex;
   flex-direction: column;
 }
@@ -371,12 +342,15 @@ border-radius: 5px;
 }
 
 
+
 .no-match {
   color: var(--primary);
 }
 .no-user {
   color: var(--primary);
 }
+
+
 
 .thumb-display {
   width: 75px;
@@ -394,10 +368,6 @@ border-radius: 5px;
   position: absolute;
   height: 100%;
 }
-
-
-
-
 .my-frets-container .fretlist-container {
   background-color:var(--light);
   border-top-right-radius: 5px;
@@ -456,6 +426,17 @@ border-radius: 5px;
   width: 75%;
   margin-bottom: 20px;
 }
+
+.navbar-toggler {
+  text-align: right;
+  width: 100%;
+  border: 0;
+}
+.navbar-collapse {
+  text-align: right;
+}
+
+
 
 @media screen and (max-width: 992px) {
   .nav-item {

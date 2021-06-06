@@ -16,14 +16,14 @@ const Header = () => {
   };
 
   return (
-    <header className="d-flex justify-content-between position-relative logo-container">
+    <header className="d-flex justify-content-between position-relative">
       <div className="logo-container">
         <img src={logo} alt="Fret Werx logo on black background" />
         <Link to="/">
           <div className="logo-link"></div>
         </Link>
       </div>
-      <nav className="nav-container nav navbar navbar-dark navbar-expand-lg">
+      <nav className="nav-container nav navbar navbar-dark navbar-expand-lg fw-navbar">
       <div className="container-fluid">
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>

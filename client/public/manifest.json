@@ -1,6 +1,7 @@
 {
-  "short_name": "fret-werx",
-  "name": "fret-werx",
+  "short_name": "Fret Werx",
+  "name": "Fret Werx",
+  "description": "An app that allows you to effortlessly design new guitar fretboards",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +21,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#582727",
+  "background_color": "#bcb9b9"
 }
