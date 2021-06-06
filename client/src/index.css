@@ -515,3 +515,106 @@ border-radius: 5px;
     width: 50%;
   }
 }
+
+@media screen and (max-width: 767px) {
+  .logo-container img {
+    height: 50%;
+  }
+  .navbar-collapse.show {
+    margin-top: 35px;
+  }
+  .nav-item {
+    padding: 6px 2px;
+    font-size: 13px;
+  }
+  .fretlist-container h2, .builder-container h2, .hero-text h1 {
+    font-size: 3rem;
+    word-wrap:  break-word;
+  }
+  .hero-text {
+    margin-top: 0;
+  }
+  .hero-button {
+    display: flex;
+    justify-content: center;
+  }
+  .hero-button a {
+    padding: 0;
+    text-align: center;
+  }
+  .body-display img {
+    height: 380px;
+  }
+  .body-content {
+    margin-top: 0;
+  }
+  .body-descrip {
+    padding: 10px;
+  }
+  .descrip-item {
+    font-size: 18px;
+  }
+  .fretlist-container, .builder-container {
+    margin: -60px 0 20px 0;
+  }
+  .user-selection {
+    max-width: 100px;
+    min-width: 100px;
+}
+  .user-selected {
+    max-width: 100px;
+    min-width: 100px;
+  }
+  .user-selection img {
+    max-width: 100px;
+    min-width: 100px;
+  }
+  .builder-controls {
+    width: 75%;
+    margin: auto;
+  }
+  .search-mod {
+    margin-bottom: 10px;
+  }
+  .search-mod h3 {
+    font-size: 2rem;
+  }
+  .search-container {
+    height: 30px;
+    font-size: 14px;
+  }
+  .display-mod {
+    height: auto;
+    margin-bottom: 15px;
+    flex-wrap: nowrap;
+  }
+  .image-choice-item {
+    padding: 0;
+    margin: 0;
+    height: 100px;
+  }
+  .image-choice-item img {
+    max-width: unset;
+  }
+  .form-mod {
+    font-size: 14px;
+  }
+  .form-mod p {
+    font-size: 12px;
+  }
+  .form-mod input {
+    margin-bottom: 10px;
+  }
+  .form-mod textarea {
+    height: 100px;
+    margin-bottom: 10px;
+  }
+  .form-mod button {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .no-creation {
+    margin-top: -40px;
+}
+}
